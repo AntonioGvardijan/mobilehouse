@@ -21,8 +21,7 @@ class Calendar extends Component  {
         
       }
 
-      let setStartDate = this.setStartDate.bind(this)
-      let setStartDate = this.setStartDate.bind(this)
+      
 
       this.firebaseApp = firebase.apps[0];
       //console.log(this.state.DateRangePicker.DateInput.id);
@@ -44,8 +43,7 @@ class Calendar extends Component  {
   
       return (
         <div>
-          <h1>React & Firebase</h1>
-          <h2>By @farazamiruddin</h2>
+          
           
           <DateRangePicker
           startDate={this.state.startDate} // momentPropTypes.momentObj or null,
