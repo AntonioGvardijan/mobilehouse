@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import Calendar from './Components/Calendar'
-import Form from './Components/Form'
+import React from 'react'
+import Landing from './Components/Landing'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 function App () {
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-
   return(
-    <>
-      <Calendar setStartDate={setStartDate} setEndDate={setEndDate} />
-      <Form/>
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Landing}/>
+        {/*<Route path="/admin" component={TokenValidation}/>*/}
+      </Switch>
+    </Router>
   )
 }
 
