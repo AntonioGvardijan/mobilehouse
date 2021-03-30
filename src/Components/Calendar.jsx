@@ -28,17 +28,30 @@ class Calendar extends Component  {
         emailRef: "",
         messageRef: "",
         numberRef: "",
+        occupiedDates :[],
       }
 
-
-
+    
       
 
       this.firebaseApp = firebase.apps[0];
       //console.log(this.state.DateRangePicker.DateInput.id);
     }
 
+
+    componentDidMount(){
+      console.log(this.state.occupiedDates)
+      firebase.firestore().collection("Dates").doc("EY3kntWS5XQZCHvcOQA7").get().then(doc=>{
+        this.setState({
+          occupiedDates:doc.data().dates
+        })
+      })
+    }
+
+    componentDidUpdate(){
+      console.log(this.state.occupiedDates)
     
+  }
 
     handleSubmit(e) {
         e.preventDefault()
@@ -82,7 +95,7 @@ class Calendar extends Component  {
     } 
   
     isBlocked = day =>{
-      const availableDates = ["2021-04-20"]
+      const availableDates = this.state.occupiedDates
       return availableDates.some(date => day.isSame(date, 'day'))
     }
       
@@ -129,6 +142,7 @@ class Calendar extends Component  {
                     <Button type="submit" value="Send" className="submit" onClick={this.alert} bgColor="brand.100" mt="4">Send</Button>
                 </form>
             </Flex>
+
 
           {/*<Form onSubmit={this.handleSubmit.bind(this)}>
           <FormControl id="full-name" isRequired>
