@@ -59,7 +59,7 @@ class Calendar extends Component  {
         let templateParams = {
           from_name: nameRef,
           reply_to: emailRef,
-          to_name: 'toni.gvardijan7@gmail.com',
+          to_name: 'mobilehomes.dream@gmail.com',
           poruka: messageRef,
           StartDate: startingDate,
           EndDate: endingDate,
@@ -67,7 +67,7 @@ class Calendar extends Component  {
          }
          
          emailjs.send(
-          'service_mobilehomes',
+          'service_mhd',
           'template_m41xhfo',
            templateParams,
           'user_3s2VO5yeBewihEufqZfux'
