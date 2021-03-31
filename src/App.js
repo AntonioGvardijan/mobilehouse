@@ -19,7 +19,7 @@ function App () {
       <Switch>
         <Route exact path="/mobilehouse" component={Landing}/>
         <AuthProvider>
-        <Route path="/admin" component={AdminAuth}/>
+        <Route path="/mobilehouse/admin" component={AdminAuth}/>
         </AuthProvider>
       </Switch>
     </Router>

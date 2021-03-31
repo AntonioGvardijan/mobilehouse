@@ -10,6 +10,7 @@ import kuca3 from '../Images/kuca3.jpeg'
 import kuca4 from '../Images/kuca4.jpeg'
 import kuca5 from '../Images/kuca5.jpeg'
 import kuca6 from '../Images/kuca6.jpeg'
+import cijene from '../Images/prices.png'
 import {FaFacebook, FaInstagram} from 'react-icons/fa'
 import "react-image-gallery/styles/css/image-gallery.css"
 import ImageGallery from 'react-image-gallery';
@@ -152,9 +153,11 @@ class Calendar extends Component  {
             onClickThumbnail = {this.onSelectImage}
             thumbnailstyle = {this.styleSmall}/>
           </Image>
-          <Wrapper>
+          
           <Headline>Mobile Homes Dream</Headline>
           <Subline>Register your stay here</Subline>
+          <img src={cijene} style={{marginBottom: "30px"}}/>
+          <Wrapper>
           <DateRangePicker
           className="calendar"
           startDate={this.state.startDate} 
