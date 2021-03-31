@@ -82,7 +82,7 @@ class Calendar extends Component  {
 
 
     componentDidMount(){
-      console.log(this.state.occupiedDates)
+      
       firebase.firestore().collection("Dates").doc("EY3kntWS5XQZCHvcOQA7").get().then(doc=>{
         this.setState({
           occupiedDates:doc.data().dates
@@ -91,7 +91,7 @@ class Calendar extends Component  {
     }
 
     componentDidUpdate(){
-      console.log(this.state.occupiedDates)
+      
     
   }
 

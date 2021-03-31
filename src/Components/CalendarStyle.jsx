@@ -18,6 +18,7 @@ export const Image = styled.image`
 
 export const FormContainer = styled.div`
     margin-top: 20px;
+    margin-bottom: 120px;
 `
 
 export const Footer = styled.div`
