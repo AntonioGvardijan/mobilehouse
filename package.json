@@ -2,7 +2,7 @@
   "name": "mobilehouse_calendar",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://antoniogvardijan.github.io/mobilehouse/",
+  "homepage": "http://mobilehomesdream.com/",
   "dependencies": {
     "@chakra-ui/react": "^1.4.1",
     "@emotion/react": "11",

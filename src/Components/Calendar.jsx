@@ -96,6 +96,7 @@ class Calendar extends Component  {
   }
 
     handleSubmit(e) {
+        alert("Reservation has been succesfully sent.")
         e.preventDefault()
         const {nameRef, emailRef, messageRef, startingDate, endingDate, numberRef} = this.state
         let templateParams = {
