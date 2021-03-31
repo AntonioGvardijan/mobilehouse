@@ -155,8 +155,8 @@ class Calendar extends Component  {
           </Image>
           
           <Headline>Mobile Homes Dream</Headline>
-          <Subline>Register your stay here</Subline>
-          <img src={cijene} style={{marginBottom: "30px"}}/>
+          <Subline>Register your vacation here</Subline>
+          <img src={cijene} style={{marginBottom: "30px", width: "100%"}}/>
           <Wrapper>
           <DateRangePicker
           className="calendar"
