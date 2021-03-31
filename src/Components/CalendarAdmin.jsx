@@ -44,7 +44,7 @@ class CalendarAdmin extends Component  {
     handleSubmit = ()=> {
         alert()
         const new_dates = this.addDatesBetween(this.state.startDate,this.state.endDate)
-        const dates = [...this.state.occupied,...new_dates]
+        const dates = [...this.state.occupiedDates,...new_dates]
    
         firebase.firestore().collection("Dates").doc("EY3kntWS5XQZCHvcOQA7").set({dates})
     }

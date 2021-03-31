@@ -4,6 +4,17 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import {DateRangePicker} from 'react-dates';
 import firebase from 'firebase';
+import kuca1 from '../Images/kuca1.jpeg'
+import kuca2 from '../Images/kuca2.jpeg'
+import kuca3 from '../Images/kuca3.jpeg'
+import kuca4 from '../Images/kuca4.jpeg'
+import kuca5 from '../Images/kuca5.jpeg'
+import kuca6 from '../Images/kuca6.jpeg'
+import {FaFacebook, FaInstagram} from 'react-icons/fa'
+import "react-image-gallery/styles/css/image-gallery.css"
+import ImageGallery from 'react-image-gallery';
+import {Container, Image, FormContainer, Wrapper, Footer, Headline, Subline, FooterText} from './CalendarStyle'
+
 import {
     Input,
     FormControl,
@@ -13,6 +24,34 @@ import {
     Box,
     Flex
   } from '@chakra-ui/react'
+
+  const images = [
+    {
+      original: kuca1,
+      thumbnail: kuca1,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+      
+    },
+    {
+      original: kuca2,
+      thumbnail: kuca2,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+    {
+      original: kuca3,
+      thumbnail: kuca3,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+    {
+      original: kuca6,
+      thumbnail: kuca6,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+  ];
 
 
 class Calendar extends Component  {
@@ -29,6 +68,8 @@ class Calendar extends Component  {
         messageRef: "",
         numberRef: "",
         occupiedDates :[],
+
+        
       }
 
     
@@ -59,7 +100,7 @@ class Calendar extends Component  {
         let templateParams = {
           from_name: nameRef,
           reply_to: emailRef,
-          to_name: 'toni.gvardijan7@gmail.com',
+          to_name: 'mobilehomes.dream@gmail.com',
           poruka: messageRef,
           StartDate: startingDate,
           EndDate: endingDate,
@@ -67,7 +108,7 @@ class Calendar extends Component  {
          }
          
          emailjs.send(
-          'service_mobilehomes',
+          'service_mhd',
           'template_m41xhfo',
            templateParams,
           'user_3s2VO5yeBewihEufqZfux'
@@ -102,22 +143,34 @@ class Calendar extends Component  {
     render(){
   
       return (
-        <div>
+        <Container>
           
-          
+          <Image>
+            <ImageGallery items={images}
+            enableLightbox={false}
+            enableImageSelection={true}
+            onClickThumbnail = {this.onSelectImage}
+            thumbnailstyle = {this.styleSmall}/>
+          </Image>
+          <Wrapper>
+          <Headline>Mobile Homes Dream</Headline>
+          <Subline>Register your stay here</Subline>
           <DateRangePicker
-          startDate={this.state.startDate} // momentPropTypes.momentObj or null,
-          startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
-          endDate={this.state.endDate} // momentPropTypes.momentObj or null,
-          endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-          onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
-          focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-          onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+          className="calendar"
+          startDate={this.state.startDate} 
+          startDateId="your_unique_start_date_id" 
+          endDate={this.state.endDate} 
+          endDateId="your_unique_end_date_id" 
+          onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} 
+          focusedInput={this.state.focusedInput}
+          onFocusChange={focusedInput => this.setState({ focusedInput })}
           displayFormat="DD/MM/YYYY"
           isDayBlocked={this.isBlocked}
+          numberOfMonths= "1"
+          
           />
           <br/>
-
+          <FormContainer>
             <Flex flexDirection="column" >
                 <form className="contact-form" onSubmit={this.handleSubmit.bind(this)}>
                     <FormControl isRequired>
@@ -142,117 +195,16 @@ class Calendar extends Component  {
                     <Button type="submit" value="Send" className="submit" onClick={this.alert} bgColor="brand.100" mt="4">Send</Button>
                 </form>
             </Flex>
+          </FormContainer>
+          </Wrapper>
 
-
-          {/*<Form onSubmit={this.handleSubmit.bind(this)}>
-          <FormControl id="full-name" isRequired>
-              <FormLabel>Full name</FormLabel>
-              <Input
-                type="text"
-                name="name"
-                value={this.state.name}
-                className="text-primary"
-                onChange={this.handleChange.bind(this, 'name')}
-                placeholder="Name"
-              />
-              
-          </FormControl>
-
-          <FormControl id="email" isRequired>
-              <FormLabel>Email adress</FormLabel>
-              <Input
-                type="email"
-                name="email"
-                value={this.state.email}
-                className="text-primary"
-                onChange={this.handleChange.bind(this, 'email')}
-                placeholder="Enter email"
-              />
-              <FormHelperText>We'll never share your email</FormHelperText>
-          </FormControl>
-
-          <FormControl id="amount" isRequired>
-              <FormLabel>Number of guests</FormLabel>
-              <NumberInput max={10} min={1}
-                
-              >
-                <NumberInputField 
-                name="broj_gostiju"
-                value={this.state.broj_gostiju}
-                onChange={this.handleChange.bind(this, 'broj_gostiju')}/>
-                <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-          </FormControl>
-
-
-          <FormControl id="message">
-              <FormLabel>Leave us a message</FormLabel>
-              <Input
-                type="textarea"
-                name="message"
-                className="text-primary"
-                value={this.state.message}
-                placeholder="Enter message"
-                onChange={this.handleChange.bind(this, 'message')}
-              />
-          </FormControl>
-          </Form>
-
-          <Button variant="primary" type="submit" onClick={this.alert}>
-              Submit
-      </Button>*/}
-
-
-
-
-
-
-
-
-
-          {/*<Form onSubmit={this.handleSubmit.bind(this)}>
-            <FormGroup controlId="formBasicName">
-              
-              <Input
-                type="text"
-                name="name"
-                value={this.state.name}
-                className="text-primary"
-                onChange={this.handleChange.bind(this, 'name')}
-                placeholder="Name"
-              />
-            </FormGroup>
-            <FormGroup controlId="formBasicEmail">
-              
-              <Input
-                type="email"
-                name="email"
-                value={this.state.email}
-                className="text-primary"
-                onChange={this.handleChange.bind(this, 'email')}
-                placeholder="Enter email"
-              />
-            </FormGroup>
-            <FormGroup controlId="formBasicMessage">
-              
-              <Input
-                type="textarea"
-                name="message"
-                className="text-primary"
-                value={this.state.message}
-                placeholder="Enter message"
-                onChange={this.handleChange.bind(this, 'message')}
-              />
-            </FormGroup>
-            <Button variant="primary" type="submit" onClick={this.alert}>
-              Submit
-            </Button>
-      </Form>*/}
-        
-        </div>
+          <Footer>
+            <FooterText>Follow us on social media:</FooterText>
+            <a href="https://www.facebook.com/Mobile-Homes-Dream-100289145503066"><FaFacebook style={{color: "white", marginLeft: "20px", fontSize: "1.2rem", marginTop: "6px"}}/></a>
+            <a href="https://www.instagram.com/mobilehomes.dream/"><FaInstagram style={{color: "white", marginLeft: "20px", fontSize: "1.4rem", marginTop: "5px"}}/></a>
+          </Footer>
+   
+        </Container>
     )
     
   }
