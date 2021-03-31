@@ -152,7 +152,8 @@ class Calendar extends Component  {
             enableLightbox={false}
             enableImageSelection={true}
             onClickThumbnail = {this.onSelectImage}
-            thumbnailstyle = {this.styleSmall}/>
+            thumbnailstyle = {this.styleSmall}
+            style={{maxWidth: "1100px"}}/>
           </Image>
           
           <Headline>Mobile Homes Dream</Headline>

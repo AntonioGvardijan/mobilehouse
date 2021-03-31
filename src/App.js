@@ -19,7 +19,7 @@ function App () {
       <Switch>
         <Route exact path="/" component={Landing}/>
         <AuthProvider>
-        <Route path="/admin" component={AdminAuth}/>
+        <Route exact path="/admin" component={AdminAuth}/>
         </AuthProvider>
       </Switch>
     </Router>

@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
 `
 
 export const Image = styled.image`
@@ -19,7 +21,7 @@ export const FormContainer = styled.div`
 `
 
 export const Footer = styled.div`
-    position: relative;
+    position: fixed;
     display: flex;
     bottom: 0;
     left: 0;
