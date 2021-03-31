@@ -17,7 +17,7 @@ function App () {
   return(
     <Router>
       <Switch>
-        <Route exact path="/" component={Landing}/>
+        <Route exact path="/mobilehouse" component={Landing}/>
         <AuthProvider>
         <Route path="/admin" component={AdminAuth}/>
         </AuthProvider>
