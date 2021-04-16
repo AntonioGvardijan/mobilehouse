@@ -10,6 +10,11 @@ import kuca3 from '../Images/kuca3.jpeg'
 import kuca4 from '../Images/kuca4.jpeg'
 import kuca5 from '../Images/kuca5.jpeg'
 import kuca6 from '../Images/kuca6.jpeg'
+import kuca7 from '../Images/kuca7.jpg'
+import kuca8 from '../Images/kuca8.jpg'
+import kuca9 from '../Images/kuca9.jpg'
+import kuca10 from '../Images/kuca10.jpg'
+import kuca11 from '../Images/kuca11.jpg'
 import cijene from '../Images/prices.png'
 import {FaFacebook, FaInstagram} from 'react-icons/fa'
 import "react-image-gallery/styles/css/image-gallery.css"
@@ -49,6 +54,36 @@ import {
     {
       original: kuca6,
       thumbnail: kuca6,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+    {
+      original: kuca7,
+      thumbnail: kuca7,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+    {
+      original: kuca8,
+      thumbnail: kuca8,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+    {
+      original: kuca9,
+      thumbnail: kuca9,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+    {
+      original: kuca10,
+      thumbnail: kuca10,
+      thumbnailWidth: 350,
+      thumbnailHeight: 250,
+    },
+    {
+      original: kuca11,
+      thumbnail: kuca11,
       thumbnailWidth: 350,
       thumbnailHeight: 250,
     },
